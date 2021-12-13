@@ -32,7 +32,7 @@ class Path():
                         self.visited.remove(connected)
                         self.doubled = False
 
-connections = day12put.input1
+connections = day12put.example1
 condict = defaultdict(list)
 
 for connection in connections:
@@ -45,7 +45,7 @@ print(smalls)
 
 Path(cave='start', visited=['start'], doubled=False)
 
-# for path in paths:
-#     print(path)
+for path in paths:
+    print(path)
 print(len(list(paths)))
 print(f'{count=}')
