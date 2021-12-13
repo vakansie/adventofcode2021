@@ -20,19 +20,19 @@ class Path():
             count += 1
 
         for connected in condict[self.cave]:
-                if connected not in ['start', 'end']:
-                    if (connected not in self.visited) or connected.isupper():
-                        self.visited.append(connected)
-                        Path(cave=connected, visited=self.visited, doubled=self.doubled)
-                        self.visited.remove(connected)
-                    elif connected in self.visited and connected in smalls and not self.doubled:
-                        self.doubled = True
-                        self.visited.append(connected)
-                        Path(cave=connected, visited=self.visited, doubled=self.doubled)
-                        self.visited.remove(connected)
-                        self.doubled = False
+            if connected not in ['start', 'end']:
+                if connected not in self.visited or connected.isupper():
+                    self.visited.append(connected)
+                    Path(cave=connected, visited=self.visited.copy(), doubled=self.doubled)
+                    self.visited.remove(connected)
+                elif connected in self.visited and connected in smalls and not self.doubled:
+                    self.doubled = True
+                    self.visited.append(connected)
+                    Path(cave=connected, visited=self.visited.copy(), doubled=self.doubled)
+                    self.visited.remove(connected)
+                    self.doubled = False
 
-connections = day12put.example1
+connections = day12put.exa
 condict = defaultdict(list)
 
 for connection in connections:
