@@ -23,7 +23,7 @@ class Path():
                 if (connected not in self.visited) or connected.isupper():
                     self.visited.append(connected)
                     Path(cave=connected, visited=self.visited.copy())
-                    self.visited.remove(connected)
+                    self.visited.pop(-1)
 
 connections = day12put.input1
 condict = defaultdict(list)

@@ -24,12 +24,12 @@ class Path():
                 if connected not in self.visited or connected.isupper():
                     self.visited.append(connected)
                     Path(cave=connected, visited=self.visited.copy(), doubled=self.doubled)
-                    self.visited.remove(connected)
+                    self.visited.pop(-1)
                 elif connected in self.visited and connected in smalls and not self.doubled:
                     self.doubled = True
                     self.visited.append(connected)
                     Path(cave=connected, visited=self.visited.copy(), doubled=self.doubled)
-                    self.visited.remove(connected)
+                    self.visited.pop(-1)
                     self.doubled = False
 
 connections = day12put.exa
