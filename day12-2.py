@@ -23,16 +23,16 @@ class Path():
             if connected not in ['start', 'end']:
                 if connected not in self.visited or connected.isupper():
                     self.visited.append(connected)
-                    Path(cave=connected, visited=self.visited.copy(), doubled=self.doubled)
+                    Path(cave=connected, visited=self.visited, doubled=self.doubled)
                     self.visited.pop(-1)
                 elif connected in self.visited and connected in smalls and not self.doubled:
                     self.doubled = True
                     self.visited.append(connected)
-                    Path(cave=connected, visited=self.visited.copy(), doubled=self.doubled)
+                    Path(cave=connected, visited=self.visited, doubled=self.doubled)
                     self.visited.pop(-1)
                     self.doubled = False
 
-connections = day12put.exa
+connections = day12put.example1
 condict = defaultdict(list)
 
 for connection in connections:

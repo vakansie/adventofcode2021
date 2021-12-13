@@ -22,10 +22,10 @@ class Path():
             if connected not in ['start', 'end']:
                 if (connected not in self.visited) or connected.isupper():
                     self.visited.append(connected)
-                    Path(cave=connected, visited=self.visited.copy())
+                    Path(cave=connected, visited=self.visited)
                     self.visited.pop(-1)
 
-connections = day12put.input1
+connections = day12put.example2
 condict = defaultdict(list)
 
 for connection in connections:
@@ -36,7 +36,6 @@ print(f'\n{condict}\n')
 Path(cave='start', visited=['start'])
 
 for path in paths:
-    continue
     print(path)
 print(len(list(paths)))
 print(f'{count=}')
